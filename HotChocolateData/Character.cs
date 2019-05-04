@@ -1,0 +1,7 @@
+namespace HotChocolateData
+{
+    class Character
+    {
+
+    }
+}
