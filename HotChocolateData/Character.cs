@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace HotChocolateData
@@ -9,5 +10,7 @@ namespace HotChocolateData
         public string Name { get; set; }
 
         public IEnumerable<CharacterJob> Jobs { get; set; }
+
+        public DateTimeOffset CreatedAt { get; set; }
     }
 }

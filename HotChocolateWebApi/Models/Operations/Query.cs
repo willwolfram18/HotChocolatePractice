@@ -18,9 +18,17 @@ namespace HotChocolateWebApi.Models.Operations
             return "Hello from GraphQL!";
         }
 
+        /// <summary>
+        /// Trying out a summary XML doctring.
+        /// </summary>
         public Task<IEnumerable<Character>> Characters()
         {
             return _characterRepo.GetCharacters();
+        }
+
+        public Task<Character> Character(string id)
+        {
+            return _characterRepo.GetCharacterById(id);
         }
     }
 }

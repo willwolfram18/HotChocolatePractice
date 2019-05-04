@@ -8,8 +8,10 @@ namespace HotChocolateWebApi.Models.Types
         protected override void Configure(IObjectTypeDescriptor<Query> descriptor)
         {
             descriptor.Field(f => f.Characters())
-                .Description("Get the Final Fantasy XIV characters.")
                 .Type<NonNullType<ListType<CharacterObjectType>>>();
+
+            descriptor.Field(f => f.Character(default))
+                .Description("Get a particular Final Fantasy XIV character by Id");
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace HotChocolateData
             {
                 Id = "1",
                 Name = "Atryn Cloudtreader",
+                CreatedAt = DateTimeOffset.Parse("2019-01-10 08:14:12-08:00"),
                 Jobs = new []
                 {
                     new CharacterJob
@@ -35,6 +37,7 @@ namespace HotChocolateData
             {
                 Id = "2",
                 Name = "Ickthid Stolenpants",
+                CreatedAt = DateTimeOffset.Parse("2017-04-13 15:21:10-04:00"),
                 Jobs = new []
                 {
                     new CharacterJob
