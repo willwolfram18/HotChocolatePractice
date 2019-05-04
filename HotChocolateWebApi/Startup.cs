@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using HotChocolate;
 using HotChocolate.AspNetCore;
 using HotChocolate.Types;
-using HotChocolateWebApi.Models.Queries;
+using HotChocolateData;
+using HotChocolateWebApi.Models.Operations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -19,7 +20,9 @@ namespace HotChocolateWebApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddGraphQL(ConfigureGraphQLSchema);
+            services.AddSingleton<ICharacterRepository, CharacterRepository>();
+
+            services.AddGraphQL(serviceProvider => ConfigureGraphQLSchema(serviceProvider));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,9 +38,13 @@ namespace HotChocolateWebApi
                 .UsePlayground();
         }
 
-        private void ConfigureGraphQLSchema(ISchemaConfiguration config)
+        private ISchema ConfigureGraphQLSchema(IServiceProvider services)
         {
-            config.RegisterQueryType<HelloQuery>();
+            return Schema.Create(config => {
+                config.RegisterServiceProvider(services);
+
+                config.RegisterQueryType<Query>();
+            });
         }
     }
 }
