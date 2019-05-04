@@ -7,6 +7,7 @@ using HotChocolate.AspNetCore;
 using HotChocolate.Types;
 using HotChocolateData;
 using HotChocolateWebApi.Models.Operations;
+using HotChocolateWebApi.Models.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -43,7 +44,7 @@ namespace HotChocolateWebApi
             return Schema.Create(config => {
                 config.RegisterServiceProvider(services);
 
-                config.RegisterQueryType<Query>();
+                config.RegisterQueryType<QueryObjectType>();
             });
         }
     }

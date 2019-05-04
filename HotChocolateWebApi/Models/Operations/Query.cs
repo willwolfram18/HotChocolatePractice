@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using HotChocolateData;
 
 namespace HotChocolateWebApi.Models.Operations
@@ -14,6 +16,11 @@ namespace HotChocolateWebApi.Models.Operations
         public string Hello()
         {
             return "Hello from GraphQL!";
+        }
+
+        public Task<IEnumerable<Character>> Characters()
+        {
+            return _characterRepo.GetCharacters();
         }
     }
 }
