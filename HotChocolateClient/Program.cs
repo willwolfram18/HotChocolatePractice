@@ -29,10 +29,6 @@ namespace HotChocolateClient
 fragment characterFragment on Character {
     id,
     name,
-    jobs {
-        level,
-        class
-    }
 }"
                 };
 

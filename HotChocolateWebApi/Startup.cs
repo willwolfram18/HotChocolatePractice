@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using HotChocolate;
 using HotChocolate.AspNetCore;
+using HotChocolate.AspNetCore.GraphiQL;
+using HotChocolate.AspNetCore.Playground;
 using HotChocolate.Types;
 using HotChocolateData;
 using HotChocolateWebApi.Models.Operations;
@@ -34,9 +36,12 @@ namespace HotChocolateWebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseGraphQL()
+            app.UseGraphQL("/graphql")
                 .UseGraphiQL()
-                .UsePlayground();
+                .UsePlayground(new PlaygroundOptions
+                {
+                    QueryPath = "/graphql"
+                });
         }
 
         private ISchema ConfigureGraphQLSchema(IServiceProvider services)
