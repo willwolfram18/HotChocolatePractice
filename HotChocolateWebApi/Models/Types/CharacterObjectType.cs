@@ -14,16 +14,15 @@ namespace HotChocolateWebApi.Models.Types
     {
         protected override void Configure(IObjectTypeDescriptor<Character> descriptor)
         {
-            var x = typeof(Character).GetProperty(nameof(Character.Jobs));
-            var jobsDescription = x.GetXmlSummaryAsync().GetAwaiter().GetResult();
+            descriptor.DescriptionFromXmlSummary();
 
-            descriptor.AddFieldWithXmlDescription(f => f.Jobs)
+            descriptor.FieldWitDescriptionFromXmlSummary(f => f.Jobs)
                 .Type<NonNullType<ListType<CharacterJobObjectType>>>();
 
-            descriptor.Field(f => f.Id)
+            descriptor.FieldWitDescriptionFromXmlSummary(f => f.Id)
                 .Type<IdType>();
 
-            descriptor.Field(f => f.Name)
+            descriptor.FieldWitDescriptionFromXmlSummary(f => f.Name)
                 .Type<NonNullType<StringType>>();
         }
     }

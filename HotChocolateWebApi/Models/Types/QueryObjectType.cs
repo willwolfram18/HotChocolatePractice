@@ -8,7 +8,7 @@ namespace HotChocolateWebApi.Models.Types
     {
         protected override void Configure(IObjectTypeDescriptor<Query> descriptor)
         {
-            descriptor.AddFieldWithXmlDescription(f => f.Characters())
+            descriptor.FieldWitDescriptionFromXmlSummary(f => f.Characters())
                 .Type<NonNullType<ListType<CharacterObjectType>>>();
 
             descriptor.Field(f => f.Character(default))

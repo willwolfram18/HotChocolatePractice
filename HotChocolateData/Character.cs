@@ -8,6 +8,9 @@ namespace HotChocolateData
     /// </summary>
     public class Character
     {
+        /// <summary>
+        /// The unique identifier for the character.
+        /// </summary>
         public string Id { get; set; }
 
         /// <summary>

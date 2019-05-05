@@ -7,7 +7,16 @@ namespace HotChocolateWebApi.Models.Extensions
 {
     public static class ObjectTypeDescriptorExtensions
     {
-        public static IObjectFieldDescriptor AddFieldWithXmlDescription<T>(this IObjectTypeDescriptor<T> descriptor,
+        public static IObjectTypeDescriptor<T> DescriptionFromXmlSummary<T>(this IObjectTypeDescriptor<T> descriptor)
+        {
+            return descriptor.Description(
+                typeof(T).GetXmlSummaryAsync()
+                    .GetAwaiter()
+                    .GetResult()
+            );
+        }
+
+        public static IObjectFieldDescriptor FieldWitDescriptionFromXmlSummary<T>(this IObjectTypeDescriptor<T> descriptor,
             Expression<Func<T, object>> field)
         {
             var xmlSummary = string.Empty;
