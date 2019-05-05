@@ -51,6 +51,25 @@ namespace HotChocolateData
                         Class = CharacterClass.Ninja
                     }
                 }
+            },
+            new Character
+            {
+                Id = "3",
+                Name = "Haynd Silverback",
+                CreatedAt = DateTimeOffset.Parse("2019-02-02 01:04:17-07:00"),
+                Jobs = new []
+                {
+                    new CharacterJob
+                    {
+                        Level = 35,
+                        Class = CharacterClass.Summoner
+                    },
+                    new CharacterJob
+                    {
+                        Level = 9,
+                        Class = CharacterClass.Warrior
+                    }
+                }
             }
         };
 
@@ -62,6 +81,13 @@ namespace HotChocolateData
         public Task<IEnumerable<Character>> GetCharacters()
         {
             return Task.FromResult((IEnumerable<Character>)_characters);
+        }
+
+        public Task<IEnumerable<Character>> GetFriendsOfCharacter(string characterId)
+        {
+            return Task.FromResult(
+                _characters.Where(c => c.Id != characterId)
+            );
         }
     }
 }

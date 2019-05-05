@@ -23,6 +23,11 @@ namespace HotChocolateData
         /// </summary>
         public IEnumerable<CharacterJob> Jobs { get; set; }
 
+        /// <summary>
+        /// The character's friends.
+        /// </summary>
+        public IEnumerable<Character> Friends { get; set; }
+
         public DateTimeOffset CreatedAt { get; set; }
     }
 }

@@ -26,6 +26,12 @@ namespace HotChocolateWebApi.Models.Types
 
             descriptor.FieldWitDescriptionFromXmlSummary(f => f.CreatedAt)
                 .Type<NonNullType<DateTimeType>>();
+
+            descriptor.FieldWitDescriptionFromXmlSummary(f => f.Friends)
+                .Type<NonNullType<ListType<CharacterObjectType>>>()
+                .Resolver(c => c.Service<ICharacterRepository>()
+                    .GetFriendsOfCharacter(c.Parent<Character>().Id)
+                );
         }
     }
 }
