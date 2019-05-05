@@ -3,7 +3,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using HotChocolate.Types;
-using HotChocolate.Types.Descriptors;
 using HotChocolateData;
 using HotChocolateWebApi.Models.Extensions;
 using NJsonSchema.Infrastructure;
@@ -24,6 +23,9 @@ namespace HotChocolateWebApi.Models.Types
 
             descriptor.FieldWitDescriptionFromXmlSummary(f => f.Name)
                 .Type<NonNullType<StringType>>();
+
+            descriptor.FieldWitDescriptionFromXmlSummary(f => f.CreatedAt)
+                .Type<NonNullType<DateTimeType>>();
         }
     }
 }

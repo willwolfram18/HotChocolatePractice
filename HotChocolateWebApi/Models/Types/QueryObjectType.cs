@@ -11,7 +11,7 @@ namespace HotChocolateWebApi.Models.Types
             descriptor.FieldWitDescriptionFromXmlSummary(f => f.Characters())
                 .Type<NonNullType<ListType<CharacterObjectType>>>();
 
-            descriptor.Field(f => f.Character(default))
+            descriptor.FieldWitDescriptionFromXmlSummary(f => f.Character(default))
                 .Description("Get a particular Final Fantasy XIV character by Id");
         }
     }

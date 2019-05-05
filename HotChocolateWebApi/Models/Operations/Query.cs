@@ -26,6 +26,10 @@ namespace HotChocolateWebApi.Models.Operations
             return _characterRepo.GetCharacters();
         }
 
+        /// <summary>
+        /// Gets a particular character by Id.
+        /// </summary>
+        /// <param name="id">The character Id.</param>
         public Task<Character> Character(string id)
         {
             return _characterRepo.GetCharacterById(id);
