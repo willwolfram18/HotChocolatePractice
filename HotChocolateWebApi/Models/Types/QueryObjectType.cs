@@ -1,4 +1,5 @@
 using HotChocolate.Types;
+using HotChocolateWebApi.Models.Extensions;
 using HotChocolateWebApi.Models.Operations;
 
 namespace HotChocolateWebApi.Models.Types
@@ -7,7 +8,7 @@ namespace HotChocolateWebApi.Models.Types
     {
         protected override void Configure(IObjectTypeDescriptor<Query> descriptor)
         {
-            descriptor.Field(f => f.Characters())
+            descriptor.AddFieldWithXmlDescription(f => f.Characters())
                 .Type<NonNullType<ListType<CharacterObjectType>>>();
 
             descriptor.Field(f => f.Character(default))

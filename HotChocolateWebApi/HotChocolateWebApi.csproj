@@ -15,6 +15,7 @@
     <PackageReference Include="HotChocolate.AspNetCore.GraphiQL" Version="9.0.0-preview.19" />
     <PackageReference Include="HotChocolate.AspNetCore.Playground" Version="9.0.0-preview.19" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="NJsonSchema" Version="9.13.37" />
   </ItemGroup>
 
   <ItemGroup>
